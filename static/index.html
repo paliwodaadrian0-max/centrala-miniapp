@@ -1,32 +1,70 @@
-C
-ŁÓDŹ / POLSKA
-CENTRALA
-ONLINE
-GŁÓWNA CENTRALA
-Łódź / Polska
-Zapraszam!
-	•	H2H – LC
-	•	Dropy – skrytka
-	•	InPost
-Łódź, Stryków, Zgierz, Ozorków, Pabianice, Konstantynów, Aleksandrów Łódzki
-Współpracujący znajomi – Śląsk
-	•	Dropy – skrytka
-	•	InPost
-Częstochowa, Katowice, Gliwice, Rybnik, Tychy, Bytom
-Jeżeli nie ma Twojego miasta, możesz napisać z zapytaniem, a sprawdzimy, czy w Twoim rejonie jest dostępna możliwa opcja.
-ZAKUP →
-Bezpieczne zgłoszenie • Kontakt przez Telegram
-← Wróć
-FORMULARZ
-Złóż zgłoszenie
-Wybierz region, usługę i produkt.
-Województwo / region
-        Wybierz region
-        ŁódzkieŚląskieInne
-       Miasto Usługa Wybierz usługęH2H – LCDropy – skrytkaInPost Produkt
-Ładowanie katalogu…
-Ilość Kontakt (telefon lub nazwa Telegram) Wiadomość dodatkowa
-Szacunkowa wartość—
-WYŚLIJ ZGŁOSZENIE →
+<!doctype html>
+<html lang="pl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#10141d">
+  <title>CENTRALA</title>
+  <link rel="stylesheet" href="/style.css">
+  <script src="https://telegram.org/js/telegram-web-app.js"></script>
+</head>
+<body>
+  <main class="app">
+    <header class="top">
+      <div class="mark">C</div>
+      <div><div class="eyebrow">ŁÓDŹ / POLSKA</div><h1>CENTRALA</h1></div>
+      <span class="status">ONLINE</span>
+    </header>
 
-Wysłanie formularza nie oznacza automatycznego potwierdzenia zamówienia. Szczegóły ustalisz z administratorem.
+    <section id="home" class="screen">
+      <div class="hero">
+        <div class="eyebrow gold">GŁÓWNA CENTRALA</div>
+        <h2>Łódź / Polska</h2>
+        <p class="intro">Zapraszam!</p>
+        <ul class="services-intro">
+          <li>H2H – LC</li><li>Dropy – skrytka</li><li>InPost</li>
+        </ul>
+        <p><b>Łódź, Stryków, Zgierz, Ozorków, Pabianice, Konstantynów, Aleksandrów Łódzki</b></p>
+        <p class="region-title">Współpracujący znajomi – Śląsk</p>
+        <ul class="services-intro"><li>Dropy – skrytka</li><li>InPost</li></ul>
+        <p><b>Częstochowa, Katowice, Gliwice, Rybnik, Tychy, Bytom</b></p>
+        <p class="muted">Jeżeli nie ma Twojego miasta, możesz napisać z zapytaniem, a sprawdzimy, czy w Twoim rejonie jest dostępna możliwa opcja.</p>
+        <button class="primary" onclick="showScreen('order')">ZAKUP <span>→</span></button>
+      </div>
+      <p class="footnote">Bezpieczne zgłoszenie • Kontakt przez Telegram</p>
+    </section>
+
+    <section id="order" class="screen hidden">
+      <button class="back" onclick="showScreen('home')">← Wróć</button>
+      <div class="section-head"><div class="eyebrow gold">FORMULARZ</div><h2>Złóż zgłoszenie</h2><p class="muted">Wybierz region, usługę i produkt.</p></div>
+      <label>Województwo / region</label>
+      <select id="region">
+        <option value="">Wybierz region</option>
+        <option>Łódzkie</option><option>Śląskie</option><option>Inne</option>
+      </select>
+      <label>Miasto</label>
+      <input id="city" list="cities" placeholder="Wpisz miasto lub wybierz z listy">
+      <datalist id="cities">
+        <option>Łódź</option><option>Stryków</option><option>Zgierz</option><option>Ozorków</option>
+        <option>Pabianice</option><option>Konstantynów Łódzki</option><option>Aleksandrów Łódzki</option>
+        <option>Częstochowa</option><option>Katowice</option><option>Gliwice</option><option>Rybnik</option><option>Tychy</option><option>Bytom</option>
+      </datalist>
+      <label>Usługa</label>
+      <select id="service"><option value="">Wybierz usługę</option><option>H2H – LC</option><option>Dropy – skrytka</option><option>InPost</option></select>
+      <label>Produkt</label>
+      <div id="products" class="products"><div class="muted">Ładowanie katalogu…</div></div>
+      <label>Ilość</label>
+      <input id="quantity" type="number" min="1" max="99" value="1">
+      <label>Kontakt (telefon lub nazwa Telegram)</label>
+      <input id="contact" maxlength="150" placeholder="Np. @twojanazwa lub numer telefonu">
+      <label>Wiadomość dodatkowa</label>
+      <textarea id="note" rows="3" maxlength="1000" placeholder="Dodatkowe informacje (opcjonalnie)"></textarea>
+      <div class="total"><span>Szacunkowa wartość</span><strong id="total">—</strong></div>
+      <button class="primary" id="submit">WYŚLIJ ZGŁOSZENIE <span>→</span></button>
+      <p id="feedback" class="feedback"></p>
+      <p class="tiny muted">Wysłanie formularza nie oznacza automatycznego potwierdzenia zamówienia. Szczegóły ustalisz z administratorem.</p>
+    </section>
+  </main>
+  <script src="/app.js"></script>
+</body>
+</html>
